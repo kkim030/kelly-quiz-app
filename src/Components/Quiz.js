@@ -9,14 +9,14 @@ function Quiz() {
   const { score, setScore, setGameState } = useContext(QuizContext);
 
   const nextQuestion = () => {
-    if ((Questions[currQuestion].answer = optionChosen)) {
+    if (Questions[currQuestion].answer == optionChosen) {
       setScore(score + 1);
     }
     setCurrQuestion(currQuestion + 1);
   };
 
   const finishQuiz = () => {
-    if ((Questions[currQuestion].answer = optionChosen)) {
+    if (Questions[currQuestion].answer == optionChosen) {
       setScore(score + 1);
     }
     setGameState("final");
@@ -44,7 +44,7 @@ function Quiz() {
         </button>
       </div>
 
-      {currQuestion == Questions.length - 1 ? (
+      {currQuestion === Questions.length - 1 ? (
         <button onClick={finishQuiz}> Finish Quiz </button>
       ) : (
         <button onClick={nextQuestion}> Next </button>
